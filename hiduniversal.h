@@ -80,7 +80,7 @@ protected:
         };
 
 public:
-        HIDUniversal(USB *p);
+        HIDUniversal(USBMax *p);
 
         // HID implementation
         bool SetReportParser(uint8_t id, HIDReportParser *prs);

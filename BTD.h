@@ -204,7 +204,7 @@ public:
          * Constructor for the BTD class.
          * @param  p   Pointer to USB class instance.
          */
-        BTD(USB *p);
+        BTD(USBMax *p);
 
         /** @name USBDeviceConfig implementation */
         /**
@@ -502,7 +502,7 @@ public:
 
 protected:
         /** Pointer to USB class instance. */
-        USB *pUsb;
+        USBMax *pUsb;
         /** Device address. */
         uint8_t bAddress;
         /** Endpoint info structure. */

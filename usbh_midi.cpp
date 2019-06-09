@@ -84,7 +84,7 @@ const uint8_t USBH_MIDI::epDataOutIndex = 2;
 const uint8_t USBH_MIDI::epDataInIndexVSP  = 3;
 const uint8_t USBH_MIDI::epDataOutIndexVSP = 4;
 
-USBH_MIDI::USBH_MIDI(USB *p) :
+USBH_MIDI::USBH_MIDI(USBMax *p) :
 pUsb(p),
 bAddress(0),
 bNumEP(1),
@@ -110,7 +110,7 @@ uint8_t USBH_MIDI::Init(uint8_t parent, uint8_t port, bool lowspeed)
         uint8_t    buf[sizeof (USB_DEVICE_DESCRIPTOR)];
         USB_DEVICE_DESCRIPTOR * udd = reinterpret_cast<USB_DEVICE_DESCRIPTOR*>(buf);
         uint8_t    rcode;
-        UsbDevice  *p = NULL;
+        UsbMaxDevice  *p = NULL;
         EpInfo     *oldep_ptr = NULL;
         uint8_t    num_of_conf;  // number of configurations
 

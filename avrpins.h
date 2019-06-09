@@ -813,7 +813,68 @@ public:
 // pointers are 32 bits on ARM
 #define pgm_read_pointer(p) pgm_read_dword(p)
 
-#if defined(CORE_TEENSY) && (defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MK64FX512__) || defined(__MK66FX1M0__))
+#if defined(ARDUINO_SAMD_MKRZERO)
+
+#define MAKE_PIN(className, pin) \
+class className { \
+public: \
+  static void Set() { \
+    digitalWrite(pin, HIGH); \
+  } \
+  static void Clear() { \
+    digitalWrite(pin, LOW); \
+  } \
+  static void SetDirRead() { \
+      pinMode(pin, INPUT); \
+  } \
+  static void SetDirWrite() { \
+      pinMode(pin, OUTPUT); \
+  } \
+  static uint8_t IsSet() { \
+    return digitalRead(pin); \
+  } \
+};
+
+MAKE_PIN(P0, 0);
+MAKE_PIN(P1, 1);
+MAKE_PIN(P2, 2);
+MAKE_PIN(P3, 3);
+MAKE_PIN(P4, 4);
+MAKE_PIN(P5, 5);
+MAKE_PIN(P6, 6);
+MAKE_PIN(P7, 7);
+MAKE_PIN(P8, 8);
+MAKE_PIN(P9, 9);
+MAKE_PIN(P10, 10);
+MAKE_PIN(P11, 11);
+MAKE_PIN(P12, 12);
+MAKE_PIN(P13, 13);
+MAKE_PIN(P14, 14);
+MAKE_PIN(P15, 15);
+MAKE_PIN(P16, 16);
+MAKE_PIN(P17, 17);
+MAKE_PIN(P18, 18);
+MAKE_PIN(P19, 19);
+MAKE_PIN(P20, 20);
+MAKE_PIN(P21, 21);
+MAKE_PIN(P22, 22);
+MAKE_PIN(P23, 23);
+MAKE_PIN(P24, 24);
+MAKE_PIN(P25, 25);
+MAKE_PIN(P26, 26);
+MAKE_PIN(P27, 27);
+MAKE_PIN(P28, 28);
+MAKE_PIN(P29, 29);
+MAKE_PIN(P30, 30);
+MAKE_PIN(P31, 31);
+MAKE_PIN(P32, 32);
+MAKE_PIN(P33, 33);
+MAKE_PIN(P34, 34);
+MAKE_PIN(P35, 35);
+
+#undef MAKE_PIN
+
+#elif defined(CORE_TEENSY) && (defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MK64FX512__) || defined(__MK66FX1M0__))
 
 #include "core_pins.h"
 #include "avr_emulation.h"

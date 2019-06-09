@@ -472,7 +472,7 @@ protected:
         static const uint8_t epDataOutIndex; // DataOUT endpoint index
         static const uint8_t epInterruptInIndex; // InterruptIN  endpoint index
 
-        USB *pUsb;
+        USBMax *pUsb;
         uint8_t bAddress;
         uint8_t bConfNum; // configuration number
         uint8_t bIface; // interface value
@@ -500,7 +500,7 @@ protected:
                 return 0;
         };
 public:
-        BulkOnly(USB *p);
+        BulkOnly(USBMax *p);
 
         uint8_t GetLastUsbError() {
                 return bLastUsbError;

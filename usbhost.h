@@ -92,7 +92,9 @@ public:
 };
 
 /* SPI pin definitions. see avrpins.h   */
-#if defined(PIN_SPI_SCK) && defined(PIN_SPI_MOSI) && defined(PIN_SPI_MISO) && defined(PIN_SPI_SS)
+#if defined(ARDUINO_SAMD_MKRZERO)
+typedef SPi< P9, P8, P10, P4 > spi;
+#elif defined(PIN_SPI_SCK) && defined(PIN_SPI_MOSI) && defined(PIN_SPI_MISO) && defined(PIN_SPI_SS)
 // Use pin defines: https://github.com/arduino/Arduino/pull/4814
 // Based on: https://www.mikeash.com/pyblog/friday-qa-2015-03-20-preprocessor-abuse-and-optional-parentheses.html
 #define NOTHING_EXTRACT

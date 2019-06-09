@@ -52,6 +52,8 @@ typedef MAX3421e<P15, P5> MAX3421E; // ESP8266 boards
 typedef MAX3421e<P5, P17> MAX3421E; // ESP32 boards
 #elif (defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__))
 typedef MAX3421e<Pb4, Pb3> MAX3421E; // Sanguino
+#elif (defined(ARDUINO_SAMD_MKRZERO))
+typedef MAX3421e<P4, P5> MAX3421E; // MKR Zero
 #else
 typedef MAX3421e<P10, P9> MAX3421E; // Official Arduinos (UNO, Duemilanove, Mega, 2560, Leonardo, Due etc.), Intel Edison, Intel Galileo 2 or Teensy 2.0 and 3.x
 #endif
@@ -207,13 +209,13 @@ public:
         virtual void Parse(const uint16_t len, const uint8_t *pbuf, const uint16_t &offset) = 0;
 };
 
-class USB : public MAX3421E {
+class USBMax : public MAX3421E {
         AddressPoolImpl<USB_NUMDEVICES> addrPool;
         USBDeviceConfig* devConfig[USB_NUMDEVICES];
         uint8_t bmHubPre;
 
 public:
-        USB(void);
+        USBMax(void);
 
         void SetHubPreMask() {
                 bmHubPre |= bmHUBPRE;

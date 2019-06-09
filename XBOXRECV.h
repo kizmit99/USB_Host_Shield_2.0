@@ -58,7 +58,7 @@ public:
          * Constructor for the XBOXRECV class.
          * @param  pUsb   Pointer to USB class instance.
          */
-        XBOXRECV(USB *pUsb);
+        XBOXRECV(USBMax *pUsb);
 
         /** @name USBDeviceConfig implementation */
         /**
@@ -232,7 +232,7 @@ public:
 
 protected:
         /** Pointer to USB class instance. */
-        USB *pUsb;
+        USBMax *pUsb;
         /** Device address. */
         uint8_t bAddress;
         /** Endpoint info structure. */

@@ -45,7 +45,7 @@ protected:
         static const uint8_t    epDataOutIndexVSP;      // DataOUT endpoint index(Vendor Specific Protocl)
 
         /* mandatory members */
-        USB      *pUsb;
+        USBMax      *pUsb;
         uint8_t  bAddress;
         uint8_t  bConfNum;    // configuration number
         uint8_t  bNumEP;      // total number of EP in the configuration
@@ -66,7 +66,7 @@ protected:
         void PrintEndpointDescriptor( const USB_ENDPOINT_DESCRIPTOR* ep_ptr );
 #endif
 public:
-        USBH_MIDI(USB *p);
+        USBH_MIDI(USBMax *p);
         // Misc functions
         operator bool() { return (pUsb->getUsbTaskState()==USB_STATE_RUNNING); }
         uint16_t idVendor() { return vid; }

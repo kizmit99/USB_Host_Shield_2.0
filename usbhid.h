@@ -142,7 +142,7 @@ public:
 
 class USBHID : public USBDeviceConfig, public UsbConfigXtracter {
 protected:
-        USB *pUsb; // USB class instance pointer
+        USBMax *pUsb; // USB class instance pointer
         uint8_t bAddress; // address
 
 protected:
@@ -162,10 +162,10 @@ protected:
 
 public:
 
-        USBHID(USB *pusb) : pUsb(pusb) {
+        USBHID(USBMax *pusb) : pUsb(pusb) {
         };
 
-        const USB* GetUsb() {
+        const USBMax* GetUsb() {
                 return pUsb;
         };
 
