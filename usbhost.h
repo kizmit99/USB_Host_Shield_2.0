@@ -93,7 +93,8 @@ public:
 
 /* SPI pin definitions. see avrpins.h   */
 #if defined(ARDUINO_SAMD_MKRZERO)
-typedef SPi< P9, P8, P10, P4 > spi;
+typedef SPi< P9, P8, P10, P5 > spi; //TRS80v3
+//typedef SPi< P9, P8, P10, P4 > spi;	//MKR ZERO
 #elif defined(PIN_SPI_SCK) && defined(PIN_SPI_MOSI) && defined(PIN_SPI_MISO) && defined(PIN_SPI_SS)
 // Use pin defines: https://github.com/arduino/Arduino/pull/4814
 // Based on: https://www.mikeash.com/pyblog/friday-qa-2015-03-20-preprocessor-abuse-and-optional-parentheses.html
@@ -213,6 +214,11 @@ void MAX3421e< SPI_SS, INTR >::regWr(uint8_t reg, uint8_t data) {
         USB_SPI.endTransaction();
 #endif
         XMEM_RELEASE_SPI();
+//        Serial.print("SPIwrite(");
+//        Serial.print(reg);
+//        Serial.print(", ");
+//        Serial.print(data);
+//        Serial.print(")\n");
         return;
 };
 /* multiple-byte write                            */
@@ -316,6 +322,11 @@ uint8_t MAX3421e< SPI_SS, INTR >::regRd(uint8_t reg) {
         USB_SPI.endTransaction();
 #endif
         XMEM_RELEASE_SPI();
+//        Serial.print("SPIread(");
+//        Serial.print(reg);
+//        Serial.print(")=");
+//        Serial.print(rv);
+//        Serial.print("\n");
         return (rv);
 }
 /* multiple-byte register read  */
