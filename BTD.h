@@ -475,9 +475,9 @@ public:
         bool rfcommConnectionClaimed;
 
         /** The name you wish to make the dongle show up as. It is set automatically by the SPP library. */
-        const char* btdName;
+        const char* btdName = nullptr;
         /** The pin you wish to make the dongle use for authentication. It is set automatically by the SPP and BTHID library. */
-        const char* btdPin;
+        const char* btdPin = nullptr;
 
         /** The bluetooth dongles Bluetooth address. */
         uint8_t my_bdaddr[6];
