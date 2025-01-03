@@ -469,7 +469,8 @@ void PS3BT::Run() {
 
                 case TURN_ON_LED:
                         if((int32_t)((uint32_t)millis() - timer) > 1000) { // loop 1 second before sending the command
-                                if(remote_name_first == 'P') { // First letter in PLAYSTATION(R)3 Controller ('P')
+                                if ((remote_name_first == 'P') || // First letter in PLAYSTATION(R)3 Controller ('P')
+                                    (remote_name_first == 'S')) { // First letter in Sony PLAYSTATION(R)3 Controlle ('S')
 #ifdef DEBUG_USB_HOST
                                         Notify(PSTR("\r\nDualshock 3 Controller Enabled\r\n"), 0x80);
 #endif
